@@ -1,0 +1,19 @@
+{
+  "name": "instacritic-ang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ek2k/instacritic-angular.git"
+  },
+  "author": "Karen Kelly, Price Soukup, Ed Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ek2k/instacritic-angular/issues"
+  },
+  "homepage": "https://github.com/ek2k/instacritic-angular#readme"
+}
