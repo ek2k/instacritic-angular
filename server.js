@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
+
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/view/index.html');
 })

@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('name');
     table.string('network');
-    table.string('genre')
+    table.string('genre');
   })
 };
 
