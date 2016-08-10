@@ -1,6 +1,6 @@
-@import 'https://fonts.googleapis.com/css?family=Luckiest+Guy|Raleway';
+@import 'https://fonts.googleapis.com/css?family=Luckiest+Guy|Special+Elite';
 
-$bodyFont: 'Raleway', sans-serif;
+$bodyFont: 'Special Elite', sans-serif;
 $headerFont: 'Luckiest Guy', cursive;
 
 $clouds: rgba(247, 249, 249, 1);
@@ -8,6 +8,10 @@ $orange: rgba(252, 74, 25, 1);
 $ltBlue: rgba(102, 215, 209, 1);
 $dkPurple: rgba(64, 61, 88, 1);
 $pearGreen: rgba(211, 219, 65, 1);
+
+body {
+  font-family: $bodyFont;
+}
 
 h1, h2, h3, h4, h5 {
   color: $orange;
@@ -18,18 +22,57 @@ h1, h2, h3, h4, h5 {
   background-color: $orange;
 }
 
+.btn-lg {
+  padding: 10px 0 5px 0;
+}
+
+.btn-rad {
+  background-color: $dkPurple;
+  color: $clouds;
+  border-radius: 200px;
+  width: 20%;
+  margin-right: 20px;
+  font-size: 150%;
+}
+
+.btn-rad:hover,
+.btn-rad:visited {
+  color: $pearGreen;
+}
+
 .btn-search {
   margin-right: 100px;
+  border-radius: 200px;
 }
 
-.navbar-inverse {
-  background-color: $dkPurple;
+label {
+  color: #333;
 }
-
 .form-group {
   margin-top: 15px;
   color: $clouds;
 }
+
+.form-horizontal {
+  padding-left: 0;
+}
+
+.list-group-item {
+  font-size: 150%;
+}
+
+.logo {
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  height: 150px;
+}
+.navbar-inverse {
+  background-color: $dkPurple;
+}
+
 
 
 .navbar-nav,
@@ -44,7 +87,6 @@ h1, h2, h3, h4, h5 {
   li {
     padding-top: 20px;
     display: inline-block;
-    font-weight: bold;
    }
 
    li:hover {

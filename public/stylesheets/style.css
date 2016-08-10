@@ -1,4 +1,7 @@
-@import "https://fonts.googleapis.com/css?family=Luckiest+Guy|Raleway";
+@import "https://fonts.googleapis.com/css?family=Luckiest+Guy|Special+Elite";
+body {
+  font-family: "Special Elite", sans-serif; }
+
 h1, h2, h3, h4, h5 {
   color: #fc4a19;
   font-family: "Luckiest Guy", cursive; }
@@ -6,15 +9,47 @@ h1, h2, h3, h4, h5 {
 .btn {
   background-color: #fc4a19; }
 
-.btn-search {
-  margin-right: 100px; }
+.btn-lg {
+  padding: 10px 0 5px 0; }
 
-.navbar-inverse {
-  background-color: #403d58; }
+.btn-rad {
+  background-color: #403d58;
+  color: #f7f9f9;
+  border-radius: 200px;
+  width: 20%;
+  margin-right: 20px;
+  font-size: 150%; }
+
+.btn-rad:hover,
+.btn-rad:visited {
+  color: #d3db41; }
+
+.btn-search {
+  margin-right: 100px;
+  border-radius: 200px; }
+
+label {
+  color: #333; }
 
 .form-group {
   margin-top: 15px;
   color: #f7f9f9; }
+
+.form-horizontal {
+  padding-left: 0; }
+
+.list-group-item {
+  font-size: 150%; }
+
+.logo {
+  height: auto;
+  padding-bottom: 20px; }
+
+.navbar {
+  height: 150px; }
+
+.navbar-inverse {
+  background-color: #403d58; }
 
 .navbar-nav ul,
 .navbar-right ul {
@@ -24,8 +59,7 @@ h1, h2, h3, h4, h5 {
 .navbar-nav li,
 .navbar-right li {
   padding-top: 20px;
-  display: inline-block;
-  font-weight: bold; }
+  display: inline-block; }
 .navbar-nav li:hover,
 .navbar-right li:hover {
   background-color: #d3db41;
