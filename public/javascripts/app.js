@@ -49,19 +49,16 @@ app.controller('IndexController', function($scope) {
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-  $scope.SendData = function(username, password, email, avatar, city, state) {
+  var newData = {};
 
-  }
-
-  $scope.UpdateData = function(username, password, email, avatar, city, state){
-    var updateData = {
-      username: username,
-      password: password,
-      email: email,
-      avatar: avatar,
-      city: city,
-      state: state
-    }
+  $scope.NewUser = function(user) {
+    newData = angular.copy(user);
+    console.log(newData);
+    $http({
+      method: 'POST',
+      url: '/users/new',
+      data: user
+    })
   }
 
   $http ({
@@ -69,14 +66,8 @@ app.controller('UserController', ['$scope', '$routeParams', '$http', function($s
     url: '/users'
   }).then(function(users){
     $scope.view = users;
-    console.log($scope.view);
   })
 }])
-
-  $http.post('/users/new', newData).then(function(users){
-    $scope.view = users;
-    console.log($scope.view);
-  })
 
   $http.put('/users/:id/edit', updateData).then(function(users){
     $scope.view = users;
