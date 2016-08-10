@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var knex = require('./db/knex.js');
 var pg = require('pg');
-var users = require('./routes/shows')
+// var users = require('./routes/shows')
 
 
 app.use(bodyParser.json());

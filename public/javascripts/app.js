@@ -1,37 +1,45 @@
 var app = angular.module('instacritic', ['ngRoute']);
 
-module.config(['$routeProvider', function($routeProvider) {
+console.log('booyah');
+
+app.config(function($routeProvider) {
   $routeProvider
       .when('/', {
-          templateUrl: 'views/templates/home.html',
+          templateUrl: 'view/templates/home.html',
           controller: 'IndexController',
           controllerAs: 'index'
-      }).when('/users', {
-          templateUrl: 'views/templates/users.html',
+      })
+      .when('/users', {
+          templateUrl: 'view/templates/users.html',
           controller: 'UserController',
           controllerAs: 'users'
-      }).when('/users/new', {
-          templateUrl: 'views/templates/newUser.html',
+      })
+      .when('/users/new', {
+          templateUrl: 'view/templates/newUser.html',
           controller: 'UserController',
           controllerAs: 'users'
-      }).when('/users/:id/edit', {
-          templateUrl: 'views/templates/editUser.html',
+      })
+      .when('/users/:id/edit', {
+          templateUrl: 'view/templates/editUser.html',
           controller: 'UserController',
           controllerAs: 'users'
-      }).when('/users/:id/delete', {
-          templateUrl: 'views/templates/delUser.html',
+      })
+      .when('/users/:id/delete', {
+          templateUrl: 'view/templates/delUser.html',
           controller: 'UserController',
           controllerAs: 'users'
-      }).when('/shows', {
+      })
+      .when('/shows', {
           templateUrl: 'view/templates/shows.html',
           controller: 'ShowController',
           controllerAs: 'shows'
-      }).when('/reviews', {
+      })
+      .when('/reviews', {
           templateUrl: 'view/templates/books.html',
           controller: 'ReviewController',
           controllerAs: 'reviews'
       });
-}]);
+});
 
 
 app.controller('IndexController', function($scope) {
