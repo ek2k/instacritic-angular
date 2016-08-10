@@ -1,0 +1,47 @@
+@import "https://fonts.googleapis.com/css?family=Luckiest+Guy|Raleway";
+h1, h2, h3, h4, h5 {
+  color: #fc4a19;
+  font-family: "Luckiest Guy", cursive; }
+
+.btn {
+  background-color: #fc4a19; }
+
+.btn-search {
+  margin-right: 100px; }
+
+.navbar-inverse {
+  background-color: #403d58; }
+
+.form-group {
+  margin-top: 15px;
+  color: #f7f9f9; }
+
+.navbar-nav ul,
+.navbar-right ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.navbar-nav li,
+.navbar-right li {
+  padding-top: 20px;
+  display: inline-block;
+  font-weight: bold; }
+.navbar-nav li:hover,
+.navbar-right li:hover {
+  background-color: #d3db41;
+  color: #403d58; }
+.navbar-nav a,
+.navbar-right a {
+  color: #f7f9f9 !important;
+  font-size: 150%; }
+.navbar-nav a:hover,
+.navbar-nav a:active,
+.navbar-right a:hover,
+.navbar-right a:active {
+  color: #403d58 !important; }
+.navbar-nav li.fa,
+.navbar-right li.fa {
+  margin-top: 5px;
+  padding-right: 10px; }
+
+/*# sourceMappingURL=style.css.map */
