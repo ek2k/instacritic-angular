@@ -4,7 +4,7 @@ var knex = reqire('../db/knex')
 
 
 function users() {
-  return knex('users');
+  return knex('shows');
 }
 
 router.get('/', function(req, res) {
