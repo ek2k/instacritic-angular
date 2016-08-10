@@ -3,8 +3,9 @@ body {
   font-family: "Special Elite", sans-serif; }
 
 h1, h2, h3, h4, h5 {
-  color: #fc4a19;
-  font-family: "Luckiest Guy", cursive; }
+  color: #66d7d1;
+  font-family: "Luckiest Guy", cursive;
+  text-shadow: 2px 2px 4px #403d58; }
 
 .btn {
   background-color: #fc4a19; }
@@ -13,7 +14,7 @@ h1, h2, h3, h4, h5 {
   padding: 10px 0 5px 0; }
 
 .btn-rad {
-  background-color: #403d58;
+  background-color: #fc4a19;
   color: #f7f9f9;
   border-radius: 200px;
   width: 20%;
@@ -22,11 +23,11 @@ h1, h2, h3, h4, h5 {
 
 .btn-rad:hover,
 .btn-rad:visited {
-  color: #d3db41; }
+  color: #403d58; }
 
 .btn-search {
-  margin-right: 100px;
-  border-radius: 200px; }
+  margin-right: 50px;
+  border-radius: 250px; }
 
 label {
   color: #333; }
@@ -38,12 +39,19 @@ label {
 .form-horizontal {
   padding-left: 0; }
 
+img {
+  width: 100%; }
+
 .list-group-item {
   font-size: 150%; }
 
 .logo {
+  width: 80%;
   height: auto;
   padding-bottom: 20px; }
+
+.navbar-header > .navbar-brand {
+  padding-right: 0; }
 
 .navbar {
   height: 150px; }
@@ -62,7 +70,7 @@ label {
   display: inline-block; }
 .navbar-nav li:hover,
 .navbar-right li:hover {
-  background-color: #d3db41;
+  background-color: #fc4a19;
   color: #403d58; }
 .navbar-nav a,
 .navbar-right a {
@@ -77,5 +85,9 @@ label {
 .navbar-right li.fa {
   margin-top: 5px;
   padding-right: 10px; }
+
+.fa-star,
+.fa-star-half-o {
+  color: #fc4a19; }
 
 /*# sourceMappingURL=style.css.map */

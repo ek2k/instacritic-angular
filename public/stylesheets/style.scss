@@ -14,8 +14,9 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  color: $orange;
+  color: $ltBlue;
   font-family: $headerFont;
+  text-shadow: 2px 2px 4px $dkPurple;
 }
 
 .btn {
@@ -27,7 +28,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .btn-rad {
-  background-color: $dkPurple;
+  background-color: $orange;
   color: $clouds;
   border-radius: 200px;
   width: 20%;
@@ -37,12 +38,12 @@ h1, h2, h3, h4, h5 {
 
 .btn-rad:hover,
 .btn-rad:visited {
-  color: $pearGreen;
+  color: $dkPurple;
 }
 
 .btn-search {
-  margin-right: 100px;
-  border-radius: 200px;
+  margin-right: 50px;
+  border-radius: 250px;
 }
 
 label {
@@ -57,13 +58,23 @@ label {
   padding-left: 0;
 }
 
+img {
+  width: 100%;
+}
+
 .list-group-item {
   font-size: 150%;
 }
 
 .logo {
+  width: 80%;
   height: auto;
+
   padding-bottom: 20px;
+}
+
+.navbar-header>.navbar-brand {
+  padding-right: 0;
 }
 
 .navbar {
@@ -72,8 +83,6 @@ label {
 .navbar-inverse {
   background-color: $dkPurple;
 }
-
-
 
 .navbar-nav,
 .navbar-right {
@@ -90,7 +99,7 @@ label {
    }
 
    li:hover {
-     background-color: $pearGreen;
+     background-color: $orange;
      color: $dkPurple;
    }
 
@@ -109,4 +118,9 @@ label {
     padding-right: 10px;
   }
 
+}
+
+.fa-star,
+.fa-star-half-o {
+  color: $orange;
 }
