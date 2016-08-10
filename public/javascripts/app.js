@@ -1,25 +1,45 @@
 var app = angular.module('instacritic', ['ngRoute']);
 
-module.config(['$routeProvider', function($routeProvider) {
+console.log('booyah');
+
+app.config(function($routeProvider) {
   $routeProvider
       .when('/', {
-          templateUrl: 'views/templates/home.html',
+          templateUrl: 'view/templates/home.html',
           controller: 'IndexController',
           controllerAs: 'index'
-      }).when('/users', {
-          templateUrl: 'views/templates/users.html',
+      })
+      .when('/users', {
+          templateUrl: 'view/templates/users.html',
           controller: 'UserController',
           controllerAs: 'users'
-      }).when('/shows', {
+      })
+      .when('/users/new', {
+          templateUrl: 'view/templates/newUser.html',
+          controller: 'UserController',
+          controllerAs: 'users'
+      })
+      .when('/users/:id/edit', {
+          templateUrl: 'view/templates/editUser.html',
+          controller: 'UserController',
+          controllerAs: 'users'
+      })
+      .when('/users/:id/delete', {
+          templateUrl: 'view/templates/delUser.html',
+          controller: 'UserController',
+          controllerAs: 'users'
+      })
+      .when('/shows', {
           templateUrl: 'view/templates/shows.html',
           controller: 'ShowController',
           controllerAs: 'shows'
-      }).when('/reviews', {
+      })
+      .when('/reviews', {
           templateUrl: 'view/templates/books.html',
           controller: 'ReviewController',
           controllerAs: 'reviews'
       });
-}]);
+});
 
 
 app.controller('IndexController', function($scope) {
@@ -29,30 +49,47 @@ app.controller('IndexController', function($scope) {
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-  $scope.SendData = function() {
-    var data = $.params({
+  $scope.SendData = function(username, password, email, avatar, city, state) {
+    var newData = {
       username: $scope.view.username,
       password: $scope.view.password,
       email: $scope.view.email,
       avatar: $scope.view.avatar,
       city: $scope.view.city,
       state: $scope.view.state
-    })
+    }
+  }
+
+  $scope.UpdateData = function(username, password, email, avatar, city, state){
+    var updateData = {
+      username: username,
+      password: password,
+      email: email,
+      avatar: avatar,
+      city: city,
+      state: state
+    }
   }
 
   $http ({
     method: 'GET',
-    url: '/books'
-  }).then(function(books){
-    $scope.view = books;
+    url: '/users'
+  }).then(function(users){
+    $scope.view = users;
     console.log($scope.view);
   })
 }])
 
-  $http({
-    method: 'POST',
-    url: '/books/new'
+  $http.post('/users/new', newData).then(function(users){
+    $scope.view = users;
+    console.log($scope.view);
   })
+
+  $http.put('/users/:id/edit', updateData).then(function(users){
+    $scope.view = users;
+  })
+
+  $http.delete('/users/:id/delete', Data)
 
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
