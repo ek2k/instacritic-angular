@@ -41,7 +41,7 @@ app.controller('IndexController', function($scope) {
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-  $scope.SendData = function() {
+  $scope.SendData = function(username, password, email, avatar, city, state) {
     var newData = {
       username: $scope.view.username,
       password: $scope.view.password,
