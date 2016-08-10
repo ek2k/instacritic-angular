@@ -78,6 +78,34 @@ app.post('/episodes', (req, res) => {
   })
 })
 
+//authentication
+
+app.post('/signup', (req, res) => {
+  var hash = bcrypt.hashSync(req.body.password, 8);
+  users().insert({email: req.body.email, password: hash}).then(function() {
+    res.redirect('/signin')
+  })
+})
+
+//authorization
+
+app.post('/signin', (req, res) => {
+  users().findOne({email: req.body.email}).then(function(user) {
+    if (user) {
+      var hash = bcrypt.hashSync(req.body.password, 8);
+      if (bcrypt.compareSync(hash, user.password)) {
+        req.session.user = user;
+        res.redirect('/');
+      }
+      else {
+        res.render('signin', "Error: email/password did not match ")
+      } else {
+        res.render('signin', "Error: email/password did not match ")
+      }
+      res.redirect('/signin')
+    }
+  })
+})
 
 app.listen(3000, function(req, res){
   console.log('Listening on port 3000');
