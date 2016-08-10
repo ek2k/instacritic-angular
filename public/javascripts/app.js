@@ -10,6 +10,18 @@ module.config(['$routeProvider', function($routeProvider) {
           templateUrl: 'views/templates/users.html',
           controller: 'UserController',
           controllerAs: 'users'
+      }).when('/users/new', {
+          templateUrl: 'views/templates/newUser.html',
+          controller: 'UserController',
+          controllerAs: 'users'
+      }).when('/users/:id/edit', {
+          templateUrl: 'views/templates/editUser.html',
+          controller: 'UserController',
+          controllerAs: 'users'
+      }).when('/users/:id/delete', {
+          templateUrl: 'views/templates/delUser.html',
+          controller: 'UserController',
+          controllerAs: 'users'
       }).when('/shows', {
           templateUrl: 'view/templates/shows.html',
           controller: 'ShowController',
@@ -29,30 +41,47 @@ app.controller('IndexController', function($scope) {
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-  $scope.SendData = function() {
-    var data = $.params({
+  $scope.SendData = function(username, password, email, avatar, city, state) {
+    var newData = {
       username: $scope.view.username,
       password: $scope.view.password,
       email: $scope.view.email,
       avatar: $scope.view.avatar,
       city: $scope.view.city,
       state: $scope.view.state
-    })
+    }
+  }
+
+  $scope.UpdateData = function(username, password, email, avatar, city, state){
+    var updateData = {
+      username: username,
+      password: password,
+      email: email,
+      avatar: avatar,
+      city: city,
+      state: state
+    }
   }
 
   $http ({
     method: 'GET',
-    url: '/books'
-  }).then(function(books){
-    $scope.view = books;
+    url: '/users'
+  }).then(function(users){
+    $scope.view = users;
     console.log($scope.view);
   })
 }])
 
-  $http({
-    method: 'POST',
-    url: '/books/new'
+  $http.post('/users/new', newData).then(function(users){
+    $scope.view = users;
+    console.log($scope.view);
   })
+
+  $http.put('/users/:id/edit', updateData).then(function(users){
+    $scope.view = users;
+  })
+
+  $http.delete('/users/:id/delete', Data)
 
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
