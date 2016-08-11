@@ -38,12 +38,13 @@
       </div>
       <div id="tabs-2">
       <div class="row">
-        {{show.title}}
+        <img id="showImg" ng-src="{{view.showImg}}" alt="" />
+        <h2 id='showTitle'>{{view.showTitle}}</h2>
           <form class="form-horizontal" action="post">
             <div class="col-sm-3">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Find a Show To Review" ng-model="searchByShow.name">
-                <button type="button" class="btn btn-rad pull-right">Search</button>
+                <input type="text" class="form-control" placeholder="Find a Show To Review" id="reviewShow" ng-model="view.title">
+                <button type="button" class="btn btn-rad pull-right" id="searchForReview" ng-click="view.findShow()">Search</button>
               </div>
 
               <br><br><fieldset class="rating">
@@ -64,7 +65,7 @@
                 </div><br><br>
                 <label class="col-sm-4 control-label" for="reviewText">Your Review</label>
                 <div class="col-sm-8">
-                  <textarea name="reviewText" rows="8" class="form-control" placeholder="Your review here"></textarea>
+                  <textarea name="reviewText" rows="4" class="form-control" placeholder="Your review here"></textarea>
                   <br>
                 </div>
                 <label class="col-sm-4 control-label" for="reviewTitle"> </label>
