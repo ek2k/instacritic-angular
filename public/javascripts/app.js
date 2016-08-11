@@ -68,7 +68,7 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
 }]);
 
 
-app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http, $sce) {
   $scope.view = {};
   $http ({
     method: 'GET',
