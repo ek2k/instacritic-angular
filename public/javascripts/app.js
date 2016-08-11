@@ -55,8 +55,8 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
       method: 'POST',
       url: '/users/new',
       data: user
-    }).success(function(data){
-      $location.path('/users')
+    }).success(function(){
+      $location.path('/users');
     })
   }
 }]);

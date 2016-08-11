@@ -69,7 +69,6 @@ app.post('/users/new', (req, res) => {
   username: req.body.username,
   password: req.body.password,
   email: req.body.email,
-  avatar: req.body.avatar
   }).then(function(result){
     console.log('done');
   })
