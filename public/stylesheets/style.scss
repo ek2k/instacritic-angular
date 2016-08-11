@@ -14,39 +14,39 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  color: $orange;
   font-family: $headerFont;
+}
+
+h2, h4 {
+  color: $ltBlue;
+  text-shadow: 2px 2px 4px $dkPurple;
+}
+
+h3 {
+  color: $orange;
 }
 
 .btn {
   background-color: $orange;
-}
-
-.btn-lg {
-  padding: 10px 0 5px 0;
-}
-
-.btn-rad {
-  background-color: $dkPurple;
   color: $clouds;
   border-radius: 200px;
-  width: 20%;
   margin-right: 20px;
   font-size: 150%;
+  padding-bottom: 5px;
 }
 
 .btn-rad:hover,
 .btn-rad:visited {
-  color: $pearGreen;
+  color: $dkPurple;
 }
 
 .btn-search {
-  margin-right: 100px;
-  border-radius: 200px;
+  margin-right: 50px;
 }
 
-label {
+label.control-label {
   color: #333;
+  font-size: 150%;
 }
 .form-group {
   margin-top: 15px;
@@ -57,13 +57,23 @@ label {
   padding-left: 0;
 }
 
+img {
+  width: 100%;
+}
+
 .list-group-item {
   font-size: 150%;
 }
 
 .logo {
+  width: 80%;
   height: auto;
+
   padding-bottom: 20px;
+}
+
+.navbar-header>.navbar-brand {
+  padding-right: 0;
 }
 
 .navbar {
@@ -72,8 +82,6 @@ label {
 .navbar-inverse {
   background-color: $dkPurple;
 }
-
-
 
 .navbar-nav,
 .navbar-right {
@@ -90,7 +98,7 @@ label {
    }
 
    li:hover {
-     background-color: $pearGreen;
+     background-color: $orange;
      color: $dkPurple;
    }
 
@@ -109,4 +117,25 @@ label {
     padding-right: 10px;
   }
 
+}
+
+.fa-star,
+.fa-star-half-o {
+  color: $orange;
+}
+
+.thumbnail img {
+  width: 200px;
+  height: auto;
+}
+
+#tabs {
+  font-family: $bodyFont;
+  font-size: 150%;
+}
+
+a#ui-id-1.ui-tabs-anchor:hover,
+a#ui-id-2.ui-tabs-anchor:hover,
+a#ui-id-3.ui-tabs-anchor:hover {
+  background-color: $dkPurple;
 }

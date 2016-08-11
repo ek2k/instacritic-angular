@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="instacritic">
+<head>
+  <meta charset="UTF-8">
+  <title>InstaCritic</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
+
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="../javascripts/jquery-ui-1.12.0.custom/jquery-ui.css">
+
+  <link rel="stylesheet" href="../stylesheets/style.css">
+
+  <script src="../javascripts/jquery-ui-1.12.0.custom/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://use.fontawesome.com/f23e9a05bf.js"></script>
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand"><img src="../images/instacritic_logo.png" alt="" class="logo"/></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#home">Home <span class="sr-only">(current)</span></a></li>
+
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+
+        <div class="nav navbar-nav navbar-right">
+          <form class="navbar-form">
+
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search TV Shows" ng-model="searchByShow.name">
+            <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+          </form>
+        </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <main>
+    <div class="container">
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1"><h3>My Favorite Shows</h3></a></li>
+          <li><a href="#tabs-2"><h3>Add a Review</h3></a></li>
+          <li><a href="#tabs-3"><h3>Edit Profile</h3></a></li>
+        </ul>
+        <div id="tabs-1">
+          <div class="row">
+            <div class="col-sm-6">
+              thing
+            </div>
+            <div class="col-sm-6">
+              thing
+            </div>
+          </div>
+        </div>
+        <div id="tabs-2">
+
+        </div>
+        <div id="tabs-3">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <img src="http://vignette3.wikia.nocookie.net/powerpuff/images/1/16/Powerpuffgirls-buttercup_large.png/revision/latest?cb=20160110051139" alt="user profile picture">
+                <div class="caption">
+                  <h4>{{user.userName}}</h4>
+                  <p>{{user.fullName}}</p>
+                  <p>{{user.email}}</p>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <form class="form-horizontal">
+                <div class="form-group form-group-sm">
+                  <label class="col-sm-2 control-label" for="editName">Name</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Edit your name">
+                  </div><br><br>
+                  <label class="col-sm-2 control-label" for="editPW">Password</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Edit your password">
+                  </div><br><br>
+                  <label class="col-sm-2 control-label" for="editPic">Image URL</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="text" placeholder="Edit your profile picture">
+                  </div><br><br>
+                  <label class="col-sm-2 control-label" for="editEmail">Email</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" type="email" placeholder="Edit your email"><br>
+                    <button type="submit" name="button" class="btn btn-rad btn-lg pull-right">Submit Edits</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div ng-view></div>
+
+
+  <script>
+  $( "#tabs" ).tabs();
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https:/maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+</body>
+</html>
