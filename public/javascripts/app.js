@@ -25,7 +25,7 @@ app.config(function($routeProvider, $locationProvider) {
           controllerAs: 'shows'
       })
       .when('/reviews', {
-          templateUrl: 'view/templates/books.html',
+          templateUrl: 'view/templates/review.html',
           controller: 'ReviewController',
           controllerAs: 'reviews'
       })
