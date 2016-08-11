@@ -27,6 +27,12 @@ h3 {
   color: $orange;
 }
 
+h5 {
+  font-family: $bodyFont;
+  font-size: 175%;
+  color: $dkPurple;
+}
+
 .btn-rad {
   font-family: $bodyFont;
   background-color: $orange;
@@ -51,7 +57,6 @@ label.control-label {
 }
 .form-group {
   margin-top: 15px;
-  color: $clouds;
 }
 
 .form-horizontal {
@@ -77,6 +82,11 @@ img {
   height: auto;
 
   padding-bottom: 20px;
+}
+
+.media-object {
+  width: 100px;
+  height: auto;
 }
 
 .navbar-header>.navbar-brand {
