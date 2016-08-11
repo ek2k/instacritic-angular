@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5 {
 
 h2, h4 {
   color: #66d7d1;
-  text-shadow: 2px 2px 4px #403d58; }
+  text-shadow: 2px 2px 4px #000; }
 
 h3 {
   color: #fc4a19; }
@@ -92,7 +92,8 @@ img {
 .navbar-nav li,
 .navbar-right li {
   padding-top: 20px;
-  display: inline-block; }
+  display: inline-block;
+  font-family: "Luckiest Guy", cursive; }
 .navbar-nav li:hover,
 .navbar-right li:hover {
   background-color: #fc4a19;
@@ -110,6 +111,10 @@ img {
 .navbar-right li.fa {
   margin-top: 5px;
   padding-right: 10px; }
+
+.panel-green {
+  background-color: #d3db41;
+  padding: 10px; }
 
 .thumbnail img {
   width: 200px;

@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5 {
 
 h2, h4 {
   color: $ltBlue;
-  text-shadow: 2px 2px 4px $dkPurple;
+  text-shadow: 2px 2px 4px #000;
 }
 
 h3 {
@@ -126,6 +126,7 @@ img {
   li {
     padding-top: 20px;
     display: inline-block;
+    font-family: $headerFont;
    }
 
    li:hover {
@@ -148,6 +149,11 @@ img {
     padding-right: 10px;
   }
 
+}
+
+.panel-green {
+  background-color: $pearGreen;
+  padding: 10px;
 }
 
 .thumbnail img {
