@@ -80,12 +80,11 @@ app.post('/users/new', (req, res) => {
 //authorization
 
 app.post('/signin', (req, res) => {
-  users().where({email: req.body.email}).then(function(user) {
-    console.log(req.body);
-    if (user) {
-      var hash = bcrypt.hashSync(req.body.password, 8);
-      if (bcrypt.compareSync(hash, user.password)) {
-        req.session.user = user;
+  users().where({email: req.body.email}).first().then(function(data) {
+    console.log(data.password);
+    if (data) {
+      if (bcrypt.compare(req.body.password, data.password)) {
+        req.session.data = data;
         res.redirect('/');
       }
       else {
