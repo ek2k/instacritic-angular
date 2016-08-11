@@ -84,8 +84,6 @@ app.controller("ShowController", function($scope, $http) {
     }).then(function successCallback(response){
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
-        console.log(response.data.image.medium);
-        console.log(response);
     });
   }
 });
@@ -102,8 +100,17 @@ app.controller("ReviewController", function($scope, $http) {
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
         $scope.view.showSummary = response.data.summary;
-        console.log(response.data.image.medium);
+        $scope.view.airDay = response.data.schedule.days[0];
+        $scope.view.network = response.data.network.name;
         console.log(response);
-    });
+
+          $http ({
+            method: 'GET',
+            url: '/reviews'
+          }).then(function(result) {
+            console.log(result)
+            $scope.view.reviews = result;
+          })
+        });
   }
 });

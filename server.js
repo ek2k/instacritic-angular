@@ -64,6 +64,12 @@ app.get('/users', (req, res) => {
   })
 })
 
+app.get('/reviews', (req, res) => {
+  knex.from('users').innerJoin('user_reviews', 'users.id', 'user_reviews.user_id').then((result) => {
+    res.json(result);
+  })
+})
+
 
 app.post('/users/new', (req, res) => {
   var hash = bcrypt.hashSync(req.body.password, 8);
