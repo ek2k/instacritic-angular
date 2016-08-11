@@ -50,14 +50,7 @@ app.controller('UserController', ['$scope', '$routeParams', '$http', function($s
   $scope.view = {};
 
   $scope.SendData = function(username, password, email, avatar, city, state) {
-    var newData = {
-      username: $scope.view.username,
-      password: $scope.view.password,
-      email: $scope.view.email,
-      avatar: $scope.view.avatar,
-      city: $scope.view.city,
-      state: $scope.view.state
-    }
+
   }
 
   $scope.UpdateData = function(username, password, email, avatar, city, state){

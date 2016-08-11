@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <title>InstaCritic</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
+
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="../javascripts/jquery-ui-1.12.0.custom/jquery-ui.css">
+
   <link rel="stylesheet" href="../stylesheets/style.css">
 
+  <script src="../javascripts/jquery-ui-1.12.0.custom/jquery-ui.min.js" type="text/javascript"></script>
   <script src="https://use.fontawesome.com/f23e9a05bf.js"></script>
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
-  <script src="/javascripts/app.js" type="text/javascript"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -31,7 +37,7 @@
         <ul class="nav navbar-nav">
           <li><a href="#home">Home <span class="sr-only">(current)</span></a></li>
 
-          <li><a href="#shows">TV Shows</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#about">About</a></li>
         </ul>
 
@@ -40,7 +46,7 @@
 
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search TV Shows" ng-model="searchByShow.name">
-            <button type="submit" class="btn btn-search"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
+            <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
           </div>
           </form>
         </div>
@@ -50,66 +56,106 @@
 
 
   <main>
-
-    <div class="row">
-      <div class="col-lg-5">
-        <img src="../images/tv.gif" alt="" class="gif"/>
-      </div>
-      <div class="col-lg-1">
-
-      </div>
-      <div class="col-lg-5">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2>Log In or Sign Up</h2>
-          </div>
-          <div class="panel-body">
-            <button class="btn btn-lg btn-rad">Log In</button>
-            <button class="btn btn-lg btn-rad">Sign Up</button>
+    <div class="container">
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1"><h3>My Favorite Shows</h3></a></li>
+          <li><a href="#tabs-2"><h3>Add a Review</h3></a></li>
+          <li><a href="#tabs-3"><h3>Edit Profile</h3></a></li>
+        </ul>
+        <div id="tabs-1">
+          <div class="row">
+            <div class="col-sm-6">
+              thing
+            </div>
+            <div class="col-sm-6">
+              thing
+            </div>
           </div>
         </div>
-        <br><br>
+        <div id="tabs-2">
+        <div class="row">
+            <form class="form-horizontal" action="post">
+              <div class="col-sm-3">
+                <fieldset class="rating">
+                  <legend>Rate the Show</legend>
+                  <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                  <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                  <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                  <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                  <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+              </fieldset>
+              </div>
+              <div class="col-sm-9">
+                <div class="form-group form-group-lg">
+                  <label class="col-sm-4 control-label" for="reviewTitle">Review Title</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" placeholder="Enter the title of your review">
+                  </div><br><br>
+                  <label class="col-sm-4 control-label" for="reviewText">Your Review</label>
+                  <div class="col-sm-8">
+                    <textarea name="reviewText" rows="8" class="form-control" placeholder="Enter your review here"></textarea>
+                  </div><br>
+                  <div class="form-group">
+                    <br><br>
+                    <button type="button" name="submitReview" class="btn btn-rad pull-right">Submit Review</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+        </div>
+        <div id="tabs-3">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <!-- TODO NEEDS NG-SRC ATTR -->
+                <img src="http://vignette3.wikia.nocookie.net/powerpuff/images/1/16/Powerpuffgirls-buttercup_large.png/revision/latest?cb=20160110051139" alt="user profile picture">
+                <div class="caption">
+                  <h4>{{user.userName}}</h4>
+                  <p>{{user.fullName}}</p>
+                  <p>{{user.email}}</p>
 
-        <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading"><h2>Best Reviewed Shows This Week</h2></div>
-
-          <!-- List group -->
-          <ul class="list-group">
-            <li class="list-group-item">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>  Stranger Things</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-half-o" aria-hidden="true"></i>  Mr. Robot</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-half-o" aria-hidden="true"></i>  Rick and Morty</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>  Full Frontal with Samantha Bee</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>  Game of Thrones</li>
-          </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-4 control-label" for="editName">Name</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" placeholder="Edit your name">
+                  </div><br><br>
+                  <label class="col-sm-4 control-label" for="editPW">Password</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" placeholder="Edit your password">
+                  </div><br><br>
+                  <label class="col-sm-4 control-label" for="editPic">Image URL</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="text" placeholder="Edit your profile picture">
+                  </div><br><br>
+                  <label class="col-sm-4 control-label" for="editEmail">Email</label>
+                  <div class="col-sm-8">
+                    <input class="form-control" type="email" placeholder="Edit your email"><br>
+                    <button type="submit" name="button" class="btn btn-rad btn-lg pull-right">Submit Edits</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </main>
 
   <div ng-view></div>
 
-  <!-- JQuery -->
-  <script src="https:/code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <script>
+  $( "#tabs" ).tabs();
+  </script>
+
   <!-- Bootstrap JS -->
   <script src="https:/maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <!-- Firebase -->
