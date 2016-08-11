@@ -10,7 +10,6 @@
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
-  <script src="/javascripts/app.js" type="text/javascript"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -31,7 +30,7 @@
         <ul class="nav navbar-nav">
           <li><a href="#home">Home <span class="sr-only">(current)</span></a></li>
 
-          <li><a href="#shows">TV Shows</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#about">About</a></li>
         </ul>
 
@@ -40,7 +39,7 @@
 
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search TV Shows" ng-model="searchByShow.name">
-            <button type="submit" class="btn btn-search"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
+            <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
           </div>
           </form>
         </div>
@@ -64,8 +63,8 @@
             <h2>Log In or Sign Up</h2>
           </div>
           <div class="panel-body">
-            <button class="btn btn-lg btn-rad">Log In</button>
-            <button class="btn btn-lg btn-rad">Sign Up</button>
+            <button class="btn btn-lg btn-rad" data-toggle="modal" data-target="#loginModal">Log In</button>
+            <button class="btn btn-lg btn-rad" data-toggle="modal" data-target="#signupModal">Sign Up</button>
           </div>
         </div>
         <br><br>
@@ -76,16 +75,99 @@
 
           <!-- List group -->
           <ul class="list-group">
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>  Stranger Things</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>  Mr. Roboto</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-half-o" aria-hidden="true"></i>  Rick and Morty</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>  Full Frontal with Samantha Bee</li>
-            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>  Game of Thrones</li>
+            <li class="list-group-item">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>  Stranger Things</li>
+            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>  Mr. Robot</li>
+            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>  Rick and Morty</li>
+            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>  Full Frontal with Samantha Bee</li>
+            <li class="list-group-item"><i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>  Game of Thrones</li>
           </ul>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel1">Log In</h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="post">
+            <div class="form-group form-group-sm">
+              <label class="col-sm-2 control-label" for="loginEmail">Email</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="email" placeholder="Enter your email">
+              </div><br><br>
+              <label class="col-sm-2 control-label" for="loginPW">Password</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="password" placeholder="Enter your password">
+              </div><br>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Log In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel2">Sign Up</h3>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="post">
+            <div class="form-group form-group-sm">
+              <label class="col-sm-2 control-label" for="enterName">Full Name</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" placeholder="Enter your full name">
+              </div><br><br>
+              <label class="col-sm-2 control-label" for="enterEmail">Email</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="email" placeholder="Enter your email">
+              </div><br><br>
+              <label class="col-sm-2 control-label" for="enterPW">Password</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="password" placeholder="Create your password">
+              </div><br>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div ng-view></div>
 

@@ -3,34 +3,33 @@ body {
   font-family: "Special Elite", sans-serif; }
 
 h1, h2, h3, h4, h5 {
+  font-family: "Luckiest Guy", cursive; }
+
+h2, h4 {
   color: #66d7d1;
-  font-family: "Luckiest Guy", cursive;
   text-shadow: 2px 2px 4px #403d58; }
 
+h3 {
+  color: #fc4a19; }
+
 .btn {
-  background-color: #fc4a19; }
-
-.btn-lg {
-  padding: 10px 0 5px 0; }
-
-.btn-rad {
   background-color: #fc4a19;
   color: #f7f9f9;
   border-radius: 200px;
-  width: 20%;
   margin-right: 20px;
-  font-size: 150%; }
+  font-size: 150%;
+  padding-bottom: 5px; }
 
 .btn-rad:hover,
 .btn-rad:visited {
   color: #403d58; }
 
 .btn-search {
-  margin-right: 50px;
-  border-radius: 250px; }
+  margin-right: 50px; }
 
-label {
-  color: #333; }
+label.control-label {
+  color: #333;
+  font-size: 150%; }
 
 .form-group {
   margin-top: 15px;
@@ -89,5 +88,18 @@ img {
 .fa-star,
 .fa-star-half-o {
   color: #fc4a19; }
+
+.thumbnail img {
+  width: 200px;
+  height: auto; }
+
+#tabs {
+  font-family: "Special Elite", sans-serif;
+  font-size: 150%; }
+
+a#ui-id-1.ui-tabs-anchor:hover,
+a#ui-id-2.ui-tabs-anchor:hover,
+a#ui-id-3.ui-tabs-anchor:hover {
+  background-color: #403d58; }
 
 /*# sourceMappingURL=style.css.map */
