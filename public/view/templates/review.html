@@ -1,5 +1,5 @@
-<div>
-  <p>
-    this is the reviews route
-  </p>
+<div ng-controller="ReviewController" ng-repeat="data in view.reviews.data">
+  <p>{{data.username}}</p>
+  <p>{{data.review}}</p>
+  <p>{{data.star_rating}}</p>
 </div>
