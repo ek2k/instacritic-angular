@@ -2,7 +2,7 @@ var app = angular.module('instacritic', ['ngRoute']);
 
 console.log('booyah');
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
   $routeProvider
       .when('/', {
           templateUrl: 'view/templates/home.html',
@@ -42,24 +42,29 @@ app.config(function($routeProvider) {
 });
 
 
-app.controller('IndexController', function($scope) {
-  $scope.view = {};
-});
-
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
   $scope.view = {};
 
   var newData = {};
 
   $scope.NewUser = function(user) {
+    console.log("clicked");
     newData = angular.copy(user);
     console.log(newData);
     $http({
       method: 'POST',
       url: '/users/new',
       data: user
+    }).success(function(data){
+      $location.path('/users')
     })
   }
+}]);
+
+app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+  $scope.view = {};
+
+
 
   $http ({
     method: 'GET',
@@ -67,20 +72,4 @@ app.controller('UserController', ['$scope', '$routeParams', '$http', function($s
   }).then(function(users){
     $scope.view = users;
   })
-}])
-
-  $http.put('/users/:id/edit', updateData).then(function(users){
-    $scope.view = users;
-  })
-
-  $http.delete('/users/:id/delete', Data)
-
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-  $scope.view = {};
-  $http ({})
-}])
-
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-  $scope.view = {};
-  $http ({})
 }])
