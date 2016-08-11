@@ -146,11 +146,11 @@
             <div class="col-sm-4">
               <div class="thumbnail">
                 <!-- TODO NEEDS NG-SRC ATTR -->
-                <img src="http://vignette3.wikia.nocookie.net/powerpuff/images/1/16/Powerpuffgirls-buttercup_large.png/revision/latest?cb=20160110051139" alt="user profile picture">
+                <img ng-src="{{view.user.avatar}}">
                 <div class="caption">
-                  <h4>{{user.userName}}</h4>
-                  <p>{{user.fullName}}</p>
-                  <p>{{user.email}}</p>
+                  <h4>{{view.user.userName}}</h4>
+                  <p>{{view.user.fullName}}</p>
+                  <p>{{view.user.email}}</p>
 
                 </div>
               </div>

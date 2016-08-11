@@ -131,20 +131,20 @@
             <div class="form-group form-group-sm">
               <label class="col-sm-2 control-label" for="enterName">Full Name</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" ng-model="user.username" placeholder="Enter your full name">
+                <input class="form-control" type="text" ng-model="newUser.username" placeholder="Enter your full name">
               </div><br><br>
               <label class="col-sm-2 control-label" for="enterEmail">Email</label>
               <div class="col-sm-10">
-                <input class="form-control" type="email" ng-model="user.email" placeholder="Enter your email">
+                <input class="form-control" type="email" ng-model="newUser.email" placeholder="Enter your email">
               </div><br><br>
               <label class="col-sm-2 control-label" for="enterPW">Password</label>
               <div class="col-sm-10">
-                <input class="form-control" type="password" ng-model="user.password" placeholder="Create your password">
+                <input class="form-control" type="password" ng-model="newUser.password" placeholder="Create your password">
               </div><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-rad" data-dismiss="modal">Close</button>
-              <input type="submit" class="btn btn-rad" ng-click="NewUser(user)" value="Sign Up">
+              <input type="submit" class="btn btn-rad" ng-click="NewUser(newUser)" value="Sign Up">
             </div>
           </div>
           </form>

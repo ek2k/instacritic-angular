@@ -3,6 +3,8 @@ var app = angular.module('instacritic', ['ngRoute']);
 console.log('booyah');
 
 
+<<<<<<< HEAD
+=======
 app.config(function($routeProvider) {
   $routeProvider
       .when('/', {
@@ -12,7 +14,7 @@ app.config(function($routeProvider) {
       })
       .when('/users', {
           templateUrl: 'view/templates/users.html',
-          controller: 'TVController',
+          controller: 'ReviewController',
           controllerAs: 'users'
       })
       .when('/users/new', {
@@ -42,6 +44,7 @@ app.config(function($routeProvider) {
       });
 });
 
+>>>>>>> d4681c669d9faf06d12fdb26c75f839da264e233
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
       .when('/', {
@@ -56,16 +59,6 @@ app.config(function($routeProvider, $locationProvider) {
       })
       .when('/users/new', {
           templateUrl: 'view/templates/newUser.html',
-          controller: 'UserController',
-          controllerAs: 'users'
-      })
-      .when('/users/:id/edit', {
-          templateUrl: 'view/templates/editUser.html',
-          controller: 'UserController',
-          controllerAs: 'users'
-      })
-      .when('/users/:id/delete', {
-          templateUrl: 'view/templates/delUser.html',
           controller: 'UserController',
           controllerAs: 'users'
       })
@@ -88,14 +81,14 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
 
   var newData = {};
 
-  $scope.NewUser = function(user) {
+  $scope.NewUser = function(newUser) {
     console.log("clicked");
     newData = angular.copy(user);
     console.log(newData);
     $http({
       method: 'POST',
       url: '/users/new',
-      data: user
+      data: newUser
     }).success(function(){
       console.log('success');
     })
@@ -113,12 +106,6 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
   }
 }]);
 
-app.controller('ShowController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-  $scope.view = {};
-
-}])
-
-
 
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
@@ -126,7 +113,7 @@ app.controller('UserController', ['$scope', '$routeParams', '$http', function($s
 }]);
 
 
-app.controller("ReviewController", function($scope, $http) {
+app.controller("ShowController", function($scope, $http) {
   $scope.view = {};
   $scope.view.findShow = function(){
       var title = $scope.view.title;
