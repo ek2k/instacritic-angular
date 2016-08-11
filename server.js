@@ -32,6 +32,17 @@ function episodes() {
   return knex('episodes');
 }
 
+function user_shows() {
+  return knex('user_shows');
+}
+
+function user_reviews() {
+  return knex('user_reviews');
+}
+function review_comments() {
+  return knex('review_comments');
+}
+
 app.get('/shows', (req, res) => {
   shows().then((result) => {
     res.json(result);
@@ -52,6 +63,10 @@ app.get('/users', (req, res) => {
   })
 })
 
+
+app.post('/users/new', (req, res) => {
+  console.log(req.body);
+
 app.post('/users', (req, res) => {
   users().insert({
   username: req.body.username,
@@ -60,8 +75,11 @@ app.post('/users', (req, res) => {
   avatar: req.body.avatar,
   city: req.body.city,
   state: req.body.state
+  }).then(function(result){
+    console.log('done');
   })
 })
+
 
 app.get('/episodes', (req, res) => {
   episodes().then((result) => {
@@ -98,8 +116,6 @@ app.post('/signin', (req, res) => {
         res.redirect('/');
       }
       else {
-        res.render('signin', "Error: email/password did not match ")
-      } else {
         res.render('signin', "Error: email/password did not match ")
       }
       res.redirect('/signin')
