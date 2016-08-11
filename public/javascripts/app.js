@@ -56,20 +56,23 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
       url: '/users/new',
       data: user
     }).success(function(){
-      $location.path('/users');
+      console.log('success');
+    })
+  }
+
+  $scope.LogIn = function(user) {
+    console.log(user);
+    $http({
+      method:'POST',
+      url: '/signin',
+      data: user
+    }).success(function(){
+      console.log('success');
     })
   }
 }]);
 
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+app.controller('ShowController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-
-
-  $http ({
-    method: 'GET',
-    url: '/users'
-  }).then(function(users){
-    $scope.view = users;
-  })
 }])
