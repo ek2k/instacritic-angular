@@ -2,7 +2,7 @@ var app = angular.module('instacritic', ['ngRoute']);
 
 console.log('booyah');
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
   $routeProvider
       .when('/', {
           templateUrl: 'view/templates/home.html',
@@ -42,54 +42,34 @@ app.config(function($routeProvider) {
 });
 
 
-app.controller('IndexController', function($scope) {
+app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
   $scope.view = {};
-});
+
+  var newData = {};
+
+  $scope.NewUser = function(user) {
+    console.log("clicked");
+    newData = angular.copy(user);
+    console.log(newData);
+    $http({
+      method: 'POST',
+      url: '/users/new',
+      data: user
+    }).success(function(){
+      $location.path('/users');
+    })
+  }
+}]);
 
 app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-  $scope.SendData = function(username, password, email, avatar, city, state) {
 
-  }
-
-  $scope.UpdateData = function(username, password, email, avatar, city, state){
-    var updateData = {
-      username: username,
-      password: password,
-      email: email,
-      avatar: avatar,
-      city: city,
-      state: state
-    }
-  }
 
   $http ({
     method: 'GET',
     url: '/users'
   }).then(function(users){
     $scope.view = users;
-    console.log($scope.view);
   })
-}])
-
-  $http.post('/users/new', newData).then(function(users){
-    $scope.view = users;
-    console.log($scope.view);
-  })
-
-  $http.put('/users/:id/edit', updateData).then(function(users){
-    $scope.view = users;
-  })
-
-  $http.delete('/users/:id/delete', Data)
-
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-  $scope.view = {};
-  $http ({})
-}])
-
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-  $scope.view = {};
-  $http ({})
 }])

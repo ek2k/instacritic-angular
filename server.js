@@ -63,31 +63,17 @@ app.get('/users', (req, res) => {
   })
 })
 
-app.post('/users', (req, res) => {
+
+app.post('/users/new', (req, res) => {
   users().insert({
   username: req.body.username,
   password: req.body.password,
   email: req.body.email,
-  avatar: req.body.avatar,
-  city: req.body.city,
-  state: req.body.state
+  }).then(function(result){
+    console.log('done');
   })
 })
 
-app.get('/episodes', (req, res) => {
-  episodes().then((result) => {
-    res.json(result);
-  })
-})
-
-app.post('/episodes', (req, res) => {
-  episodes().insert({
-    show_id: req.body.show_id,
-    episode_number: req.body.episode_number,
-    episode_name: req.body.episode_name,
-    season_number: req.body.season_number
-  })
-})
 
 //authentication
 
