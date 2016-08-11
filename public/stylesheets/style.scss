@@ -140,12 +140,15 @@ img {
 .fa-star-half-o {
   color: $orange;
 }
-
 .thumbnail img {
   width: 200px;
   height: auto;
 }
 
+#showImg {
+  width: 100px;
+  height: auto;
+}
 #tabs {
   font-family: $bodyFont;
   font-size: 150%;
@@ -154,7 +157,7 @@ img {
 a#ui-id-1.ui-tabs-anchor:hover,
 a#ui-id-2.ui-tabs-anchor:hover,
 a#ui-id-3.ui-tabs-anchor:hover {
-  background-color: $dkPurple;
+  background-color: $pearGreen;
 }
 
 
