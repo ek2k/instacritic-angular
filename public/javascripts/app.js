@@ -24,7 +24,7 @@ app.config(function($routeProvider, $locationProvider) {
           controller: 'ShowController',
           controllerAs: 'shows'
       })
-      .when('/reviews', {
+      .when('/review', {
           templateUrl: 'view/templates/review.html',
           controller: 'ReviewController',
           controllerAs: 'reviews'
@@ -84,6 +84,24 @@ app.controller("ShowController", function($scope, $http) {
     }).then(function successCallback(response){
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
+        console.log(response.data.image.medium);
+        console.log(response);
+    });
+  }
+});
+
+app.controller("ReviewController", function($scope, $http) {
+  $scope.view = {};
+  $scope.view.findShow = function(){
+      $scope.view.results=!$scope.view.results;
+      var title = $scope.view.title;
+      $http ({
+        method: 'GET',
+        url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
+    }).then(function successCallback(response){
+        $scope.view.showTitle = response.data.name;
+        $scope.view.showImg = response.data.image.medium;
+        $scope.view.showSummary = response.data.summary;
         console.log(response.data.image.medium);
         console.log(response);
     });

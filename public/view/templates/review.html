@@ -1,5 +1,47 @@
-<div>
-  <p>
-    this is the reviews route
-  </p>
+<div class="container-fluid" ng-controller="ReviewController">
+<div class="row">
+  <div class="col-sm-4"></div>
+
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Search for a Show</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter title" id="searchShow" ng-model="view.title">
+          <button type="button" class="btn btn-rad pull-right" id="searchForInfo" ng-click="view.findShow()"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+  <div class="row" ng-show="view.results">
+    <div class="col-sm-12">
+
+        <div class="panel panel-default" >
+          <div class="panel-heading" id="reviews">
+              <h2>{{view.showTitle}}</h2>
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="media">
+                <div class="media-left">
+                    <img class="media-object" ng-src="{{view.showImg}}" alt="TV show promo image">
+
+                </div>
+                <div class="media-body">
+                  <h5 class="media-heading">Summary</h5>
+                  <p>{{view.showSummary}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+
 </div>
