@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
       })
       .when('/users', {
           templateUrl: 'view/templates/users.html',
-          controller: 'TVController',
+          controller: 'ReviewController',
           controllerAs: 'users'
       })
       .when('/users/new', {
