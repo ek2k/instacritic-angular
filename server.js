@@ -32,6 +32,17 @@ function episodes() {
   return knex('episodes');
 }
 
+function user_shows() {
+  return knex('user_shows');
+}
+
+function user_reviews() {
+  return knex('user_reviews');
+}
+function review_comments() {
+  return knex('review_comments');
+}
+
 app.get('/shows', (req, res) => {
   shows().then((result) => {
     res.json(result);
@@ -105,8 +116,6 @@ app.post('/signin', (req, res) => {
         res.redirect('/');
       }
       else {
-        res.render('signin', "Error: email/password did not match ")
-      } else {
         res.render('signin', "Error: email/password did not match ")
       }
       res.redirect('/signin')
