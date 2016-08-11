@@ -6,7 +6,12 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
 
   <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https:/maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="../javascripts/ajaxcall.js"> -->
 
+
+  </script>
 
   <link rel="stylesheet" href="../javascripts/jquery-ui-1.12.0.custom/jquery-ui.css">
 
@@ -17,11 +22,11 @@
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+  <script src="../javascripts/app.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a href="#" class="navbar-brand"><img src="../images/instacritic_logo.png" alt="" class="logo"/></a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -55,7 +60,7 @@
   </nav>
 
 
-  <main>
+  <main ng-controller="ReviewController">
     <div class="container">
       <div id="tabs">
         <ul>
@@ -94,12 +99,13 @@
         </div>
         <div id="tabs-2">
         <div class="row">
-          {{show.title}}
+          <img id="showImg" ng-src="{{view.showImg}}" alt="" />
+          <h2 id='showTitle'>{{view.showTitle}}</h2>
             <form class="form-horizontal" action="post">
               <div class="col-sm-3">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Find a Show To Review" ng-model="searchByShow.name">
-                  <button type="button" class="btn btn-rad pull-right">Search</button>
+                  <input type="text" class="form-control" placeholder="Find a Show To Review" id="reviewShow" ng-model="view.title">
+                  <button type="button" class="btn btn-rad pull-right" id="searchForReview" ng-click="view.findShow()">Search</button>
                 </div>
 
                 <br><br><fieldset class="rating">
@@ -120,7 +126,7 @@
                   </div><br><br>
                   <label class="col-sm-4 control-label" for="reviewText">Your Review</label>
                   <div class="col-sm-8">
-                    <textarea name="reviewText" rows="8" class="form-control" placeholder="Your review here"></textarea>
+                    <textarea name="reviewText" rows="4" class="form-control" placeholder="Your review here"></textarea>
                     <br>
                   </div>
                   <label class="col-sm-4 control-label" for="reviewTitle"> </label>
@@ -186,11 +192,6 @@
   $( "#tabs" ).tabs();
   </script>
 
-  <!-- Bootstrap JS -->
-  <script src="https:/maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <!-- Firebase -->
-  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-  <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
 </body>
 </html>
