@@ -53,6 +53,31 @@
               <i class="fa fa-star" aria-hidden="true"></i>  Game of Thrones</li>
           </ul>
         </div>
+        <div class="panel panel-default" >
+        <div class="panel-heading" id="reviews"><h2>Read Show Reviews</h2></div>
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" src="https://cdn.fstatic.com/media/movies/covers/2016/06/thumbs/stranger-things-1a-temporada_t121192_png_290x478_upscale_q90.jpg" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h5 class="media-heading">Stranger and stranger</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" src="https://walter.trakt.us/images/shows/000/103/588/posters/thumb/659d4688a7.jpg" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h5 class="media-heading">Better than the Daily Show!</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </main>
@@ -66,23 +91,30 @@
           <h3 class="modal-title" id="myModalLabel1">Log In</h3>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" action="post">
+          <form class="form-horizontal" method="post">
             <div class="form-group form-group-sm">
               <label class="col-sm-2 control-label" for="loginEmail">Email</label>
               <div class="col-sm-10">
-                <input class="form-control" type="email" placeholder="Enter your email">
+                <input class="form-control" ng-model="user.email" type="email" placeholder="Enter your email">
               </div><br><br>
               <label class="col-sm-2 control-label" for="loginPW">Password</label>
               <div class="col-sm-10">
-                <input class="form-control" type="password" placeholder="Enter your password">
+                <input class="form-control" ng-model="user.password" type="password" placeholder="Enter your password">
               </div><br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-rad" data-dismiss="modal">Close</button>
+              <input type="submit" class="btn btn-rad" ng-click="LogIn(user)" value="Log In">
             </div>
           </form>
         </div>
+<<<<<<< HEAD
         <div class="modal-footer">
           <button type="button" class="btn btn-rad" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-rad" ng-click="loginFunc()">Log In</button>
         </div>
+=======
+>>>>>>> a5ccefaa0646f7bc492373e8d3a812fcd1f64411
       </div>
     </div>
   </div>

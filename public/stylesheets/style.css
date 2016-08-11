@@ -108,6 +108,10 @@ img {
   width: 200px;
   height: auto; }
 
+#showImg {
+  width: 100px;
+  height: auto; }
+
 #tabs {
   font-family: "Special Elite", sans-serif;
   font-size: 150%; }
@@ -115,7 +119,7 @@ img {
 a#ui-id-1.ui-tabs-anchor:hover,
 a#ui-id-2.ui-tabs-anchor:hover,
 a#ui-id-3.ui-tabs-anchor:hover {
-  background-color: #403d58; }
+  background-color: #d3db41; }
 
 .rating {
   float: left; }
