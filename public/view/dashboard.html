@@ -35,7 +35,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#home">Home <span class="sr-only">(current)</span></a></li>
+          <li><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
 
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#about">About</a></li>
@@ -46,7 +46,7 @@
 
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search TV Shows" ng-model="searchByShow.name">
-            <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-search btn-rad"><i class="fa fa-search" aria-hidden="true"></i></button>
           </div>
           </form>
         </div>
@@ -65,19 +65,44 @@
         </ul>
         <div id="tabs-1">
           <div class="row">
-            <div class="col-sm-6">
-              thing
-            </div>
-            <div class="col-sm-6">
-              thing
-            </div>
+            <table class="table">
+              <thead>
+                <th>
+                  <h4>Show Title</h4>
+                </th>
+                <th>
+                  <h4>Next Episode</h4>
+                </th>
+                <th>
+                  <h4>Your Rating</h4>
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mr. Robot</td>
+                  <td>August 18, 2016</td>
+                  <td><i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i></td>
+                </tr>
+              </tbody>
+            </table>
+
           </div>
         </div>
         <div id="tabs-2">
         <div class="row">
+          {{show.title}}
             <form class="form-horizontal" action="post">
               <div class="col-sm-3">
-                <fieldset class="rating">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Find a Show To Review" ng-model="searchByShow.name">
+                  <button type="button" class="btn btn-rad pull-right">Search</button>
+                </div>
+
+                <br><br><fieldset class="rating">
                   <legend>Rate the Show</legend>
                   <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
                   <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
@@ -85,19 +110,24 @@
                   <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
                   <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
               </fieldset>
+
               </div>
               <div class="col-sm-9">
                 <div class="form-group form-group-lg">
                   <label class="col-sm-4 control-label" for="reviewTitle">Review Title</label>
                   <div class="col-sm-8">
-                    <input class="form-control" type="text" placeholder="Enter the title of your review">
+                    <input class="form-control" type="text" placeholder="The title of your review">
                   </div><br><br>
                   <label class="col-sm-4 control-label" for="reviewText">Your Review</label>
                   <div class="col-sm-8">
-                    <textarea name="reviewText" rows="8" class="form-control" placeholder="Enter your review here"></textarea>
-                  </div><br>
+                    <textarea name="reviewText" rows="8" class="form-control" placeholder="Your review here"></textarea>
+                    <br>
+                  </div>
+                  <label class="col-sm-4 control-label" for="reviewTitle"> </label>
+                  <div class="col-sm-8">
+                    <input type="checkbox" name="favShow" value="favShow">  Favorite this show
+                  </div>
                   <div class="form-group">
-                    <br><br>
                     <button type="button" name="submitReview" class="btn btn-rad pull-right">Submit Review</button>
                   </div>
                 </div>
@@ -137,7 +167,7 @@
                   <label class="col-sm-4 control-label" for="editEmail">Email</label>
                   <div class="col-sm-8">
                     <input class="form-control" type="email" placeholder="Edit your email"><br>
-                    <button type="submit" name="button" class="btn btn-rad btn-lg pull-right">Submit Edits</button>
+                    <button type="submit" name="button" class="btn btn-rad pull-right">Submit Edits</button>
                   </div>
                 </div>
               </form>
