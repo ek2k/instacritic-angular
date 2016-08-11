@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var knex = require('./db/knex.js');
 var pg = require('pg');
+var bcrypt = require('bcrypt')
 // var users = require('./routes/shows')
 
 
@@ -65,29 +66,22 @@ app.get('/users', (req, res) => {
 
 
 app.post('/users/new', (req, res) => {
+  var hash = bcrypt.hashSync(req.body.password, 8);
   users().insert({
   username: req.body.username,
-  password: req.body.password,
+  password: hash,
   email: req.body.email,
   }).then(function(result){
-    console.log('done');
-  })
-})
-
-
-//authentication
-
-app.post('/signup', (req, res) => {
-  var hash = bcrypt.hashSync(req.body.password, 8);
-  users().insert({email: req.body.email, password: hash}).then(function() {
-    res.redirect('/signin')
+    console.log(result);
+    res.json('result')
   })
 })
 
 //authorization
 
 app.post('/signin', (req, res) => {
-  users().findOne({email: req.body.email}).then(function(user) {
+  users().where({email: req.body.email}).then(function(user) {
+    console.log(req.body);
     if (user) {
       var hash = bcrypt.hashSync(req.body.password, 8);
       if (bcrypt.compareSync(hash, user.password)) {
