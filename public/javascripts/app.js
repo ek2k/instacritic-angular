@@ -68,9 +68,15 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
 }]);
 
 
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
-  $http ({})
+  $http ({
+    method: 'GET',
+    url: '/reviews'
+  }).then(function(result) {
+    console.log(result)
+    $scope.view.reviews = result;
+  })
 }]);
 
 
