@@ -100,6 +100,6 @@ app.post('/signin', (req, res) => {
   })
 })
 
-app.listen(3000, function(req, res){
+app.listen(process.env.NODE_ENV || 3000, function(req, res){
   console.log('Listening on port 3000');
 })

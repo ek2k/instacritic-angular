@@ -2,7 +2,8 @@ var app = angular.module('instacritic', ['ngRoute']);
 
 console.log('booyah');
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function($locationProvider, $routeProvider) {
+  $locationProvider.html5Mode([true]);
   $routeProvider
       .when('/', {
           templateUrl: 'view/templates/home.html',
@@ -36,6 +37,7 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'view/templates/about.html',
         controller: 'ReviewController',
       });
+
 });
 
 
@@ -100,7 +102,6 @@ app.controller("ReviewController", function($scope, $http) {
     }).then(function successCallback(response){
 
       var summary = response.data.summary.replace(/<\/?[^>]+>/gi, '');
-
         console.log(response);
 
         $scope.view.showTitle = response.data.name;

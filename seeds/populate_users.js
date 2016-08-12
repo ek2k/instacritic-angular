@@ -142,6 +142,7 @@ exports.seed = function(knex, Promise) {
                                 user_id: 2,
                                 episode_id: 6,
                                 review: 'I love this show!! So many great characters and dialogue. Totally recommended.',
+
                                 spoilers: false,
                                 star_rating: 5
                             }),
@@ -166,6 +167,7 @@ exports.seed = function(knex, Promise) {
                                 user_id: 4,
                                 episode_id: 3,
                                 review: 'It frightens and confuses me, but I like it',
+
                                 spoilers: false,
                                 star_rating: 3
                             })
@@ -175,12 +177,12 @@ exports.seed = function(knex, Promise) {
                             return Promise.all([
                                 knex('review_comments').insert({
                                     review_id: 2,
-                                    comment: 'this is a comment on the review for stranger things episode 2',
+                                    comment: 'COMMENTS YAY',
                                     user_id: 2
                                 }),
                                 knex('review_comments').insert({
                                     review_id: 4,
-                                    comment: 'this is a comment on the review for rick and morty episode 2',
+                                    comment: 'COMMENTS YAY',
                                     user_id: 1
                                 })
                             ])
