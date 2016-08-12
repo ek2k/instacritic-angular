@@ -7,7 +7,7 @@ describe('Instacritic demo', function() {
     expect(browser.getTitle()).toEqual('InstaCritic')
   })
 
-  it('print out nav li', function() {
+  it('should print out nav li', function() {
     browser.get('http://localhost:3000/#/home');
 
     element.all(by.css('.items li')).each(function(element, index) {
@@ -15,5 +15,12 @@ describe('Instacritic demo', function() {
         console.log(index, text)
       })
     })
+  })
+
+})
+
+describe('login', function () {
+  it('should take the user to a login screen', function () {
+      
   })
 })
