@@ -15,9 +15,12 @@ app.config(function($routeProvider, $locationProvider) {
           controllerAs: 'users'
       })
       .when('/users/new', {
-          templateUrl: 'view/templates/newUser.html',
-          controller: 'UserController',
-          controllerAs: 'users'
+          templateUrl: 'view/templates/signin.html',
+          controller: 'NewUserController',
+      })
+      .when('/users/login', {
+        templateUrl: 'view/templates/login.html',
+        controller: 'LogInController',
       })
       .when('/shows', {
           templateUrl: 'view/templates/shows.html',
@@ -37,23 +40,12 @@ app.config(function($routeProvider, $locationProvider) {
 
 
 
-app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
+app.controller('IndexController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
-  var newData = {};
-  $scope.NewUser = function(newUser) {
-    console.log("clicked");
-    newData = angular.copy(newUser);
-    console.log(newData);
-    $http({
-      method: 'POST',
-      url: '/users/new',
-      data: newUser
-    }).success(function(response){
-      console.log(response);
-      $location.url('/shows');
-    })
-  }
 
+}]);
+
+app.controller('LogInController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
   $scope.LogIn = function(user) {
     console.log(user);
     $http({
@@ -64,8 +56,24 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
       $location.url('/shows')
     })
   }
-}]);
 
+}])
+
+app.controller('NewUserController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
+  $scope.NewUser = function(newUser) {
+    console.log("clicked");
+    var newData = {};
+    newData = angular.copy(newUser);
+    console.log(newData);
+    $http({
+      method: 'POST',
+      url: '/users/new',
+      data: newUser
+    }).success(function(response){
+      $location.url('/shows');
+    })
+  }
+}])
 
 app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};

@@ -22,6 +22,11 @@ h5 {
   font-size: 175%;
   color: #403d58; }
 
+a:link, a:visited, a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .avatar {
   width: 100px;
   height: auto; }
