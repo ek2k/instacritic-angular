@@ -53,7 +53,7 @@ app.controller('LogInController', ['$scope', '$routeParams', '$location', '$http
       url: '/signin',
       data: user
     }).success(function(){
-      $location.url('/shows')
+      $location.url('/users')
     })
   }
 
