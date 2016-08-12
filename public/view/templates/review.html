@@ -1,5 +1,85 @@
-<div>
-  <p>
-    this is the reviews route
-  </p>
+
+<div class="container-fluid" ng-controller="ReviewController">
+<div class="row">
+  <div class="col-sm-4"></div>
+
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-green">
+        <h3>Search for a Show</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter title" id="searchShow" ng-model="view.title">
+          <button type="button" class="btn btn-rad pull-right" id="searchForInfo" ng-click="view.findShow()"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
 </div>
+  <div class="row" ng-show="view.results">
+    <div class="col-sm-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading" id="reviews">
+              <h1>{{view.showTitle}}</h1>
+          </div><br>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-green">
+                  <h3>Show Info</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" id="promoImg" ng-src="{{view.showImg}}" alt="TV show promo image">
+
+                    </div>
+                    <div class="media-body">
+                      <h5 class="media-heading">Airs On</h5>
+                      <p>{{view.airDay}}s</p>
+                      <h5 class="media-heading">Network</h5>
+                      <p>{{view.network}}s</p>
+
+                      <h5 class="media-heading">Summary</h5>
+                        <p>{{view.showSummary}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-green">
+                  <h3>User Reviews</h3>
+                </div>
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <th></th>
+                      <th>User</th>
+                      <th>Review</th>
+                      <th>User Rating</th>
+                    </thead>
+                    <div>
+                      <tbody ng-controller="ReviewController" ng-repeat="data in view.reviews.data">
+                        <td><img class="avatar" ng-src="{{data.avatar}}" alt=""></td>
+                        <td>{{data.username}}</td>
+                        <td>{{data.review}}</td>
+                        <td>{{data.star_rating}} out of 5</td>
+                      </tbody>
+                    </div>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+    </div>
+  </div>

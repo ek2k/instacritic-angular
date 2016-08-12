@@ -24,10 +24,14 @@ app.config(function($routeProvider, $locationProvider) {
           controller: 'ShowController',
           controllerAs: 'shows'
       })
-      .when('/reviews', {
-          templateUrl: 'view/templates/books.html',
+      .when('/review', {
+          templateUrl: 'view/templates/review.html',
           controller: 'ReviewController',
           controllerAs: 'reviews'
+      })
+      .when('/about', {
+        templateUrl: 'view/templates/about.html',
+        controller: 'AboutController',
       });
 });
 
@@ -35,9 +39,11 @@ app.config(function($routeProvider, $locationProvider) {
 
 app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
   $scope.view = {};
-
+  var newData = {};
   $scope.NewUser = function(newUser) {
-    $scope.showModal=false;
+    console.log("clicked");
+    newData = angular.copy(newUser);
+    console.log(newData);
     $http({
       method: 'POST',
       url: '/users/new',
@@ -61,9 +67,15 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
 }]);
 
 
-app.controller('UserController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
-  $http ({})
+  $http ({
+    method: 'GET',
+    url: '/reviews'
+  }).then(function(result) {
+    console.log(result)
+    $scope.view.reviews = result;
+  })
 }]);
 
 
@@ -77,8 +89,33 @@ app.controller("ShowController", function($scope, $http) {
     }).then(function successCallback(response){
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
-        console.log(response.data.image.medium);
-        console.log(response);
     });
+  }
+});
+
+app.controller("ReviewController", function($scope, $http) {
+  $scope.view = {};
+  $scope.view.findShow = function(){
+      $scope.view.results=!$scope.view.results;
+      var title = $scope.view.title;
+      $http ({
+        method: 'GET',
+        url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
+    }).then(function successCallback(response){
+        $scope.view.showTitle = response.data.name;
+        $scope.view.showImg = response.data.image.medium;
+        $scope.view.showSummary = response.data.summary;
+        $scope.view.airDay = response.data.schedule.days[0];
+        $scope.view.network = response.data.network.name;
+        console.log(response);
+
+          $http ({
+            method: 'GET',
+            url: '/reviews'
+          }).then(function(result) {
+            console.log(result)
+            $scope.view.reviews = result;
+          })
+        });
   }
 });
