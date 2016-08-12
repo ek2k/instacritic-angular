@@ -98,10 +98,14 @@ app.controller("ReviewController", function($scope, $http) {
         method: 'GET',
         url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
     }).then(function successCallback(response){
+<<<<<<< HEAD
+      var summary = response.data.summary.replace(/<\/?[^>]+>/gi, '');
+=======
         console.log(response);
+>>>>>>> d2ec9a98eee9adb8ceb27e682afc611f145f0a95
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
-        $scope.view.showSummary = response.data.summary;
+        $scope.view.showSummary = summary;
         $scope.view.airDay = response.data.schedule.days[0];
         if(!$scope.view.airDay){
             $scope.view.airDay = 'Show ended';
