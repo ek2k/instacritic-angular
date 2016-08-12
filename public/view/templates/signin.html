@@ -1,25 +1,37 @@
 <div ng-controller="NewUserController">
 
-  <form class="form-horizontal" method="post">
-    <div class="form-group form-group-sm">
-      <label class="col-sm-2 control-label" for="enterName">Full Name</label>
-      <div class="col-sm-8">
-        <input class="form-control" type="text" ng-model="newUser.username" placeholder="Enter your full name">
-      </div><br><br>
-      <label class="col-sm-2 control-label" for="enterEmail">Email</label>
-      <div class="col-sm-8">
-        <input class="form-control" type="email" ng-model="newUser.email" placeholder="Enter your email">
-      </div><br><br>
-      <label class="col-sm-2 control-label" for="enterPW">Password</label>
-      <div class="col-sm-8">
-        <input class="form-control" type="password" ng-model="newUser.password" placeholder="Create your password">
-      </div><br>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-green">
+        <h3>Sign Up</h3>
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" method="post">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="enterName">Full Name</label>
+            <div class="col-sm-8">
+              <input class="form-control" type="text" ng-model="newUser.username" placeholder="Enter your full name">
+            </div><br><br>
+            <label class="col-sm-2 control-label" for="enterEmail">Email</label>
+            <div class="col-sm-8">
+              <input class="form-control" type="email" ng-model="newUser.email" placeholder="Enter your email">
+            </div><br><br>
+            <label class="col-sm-2 control-label" for="enterPW">Password</label>
+            <div class="col-sm-8">
+              <input class="form-control" type="password" ng-model="newUser.password" placeholder="Create your password">
+            </div><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-rad"><a href="/#/">Back</a></button>
+            <button type="submit" ng-click="NewUser(newUser)" class="btn btn-rad">Submit</button>
+            <!-- <input type="submit" class="btn btn-rad" ng-click="NewUser(newUser)" data-dismiss="modal" value="Sign Up"> -->
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-rad" data-dismiss="modal"><a href="/#/">Back</a></button>
-      <button type="submit" ng-click="NewUser(newUser)" class="btn btn-rad" data-dismiss="modal">Submit</button>
-      <!-- <input type="submit" class="btn btn-rad" ng-click="NewUser(newUser)" data-dismiss="modal" value="Sign Up"> -->
-    </div>
-  </form>
+
+  </div>
+
+
 
 </div>
