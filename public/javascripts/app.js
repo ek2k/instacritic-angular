@@ -11,7 +11,7 @@ app.config(function($routeProvider, $locationProvider) {
       })
       .when('/users', {
           templateUrl: 'view/templates/users.html',
-          controller: 'UserController',
+          controller: 'ReviewController',
           controllerAs: 'users'
       })
       .when('/users/new', {
@@ -21,7 +21,7 @@ app.config(function($routeProvider, $locationProvider) {
       })
       .when('/shows', {
           templateUrl: 'view/templates/shows.html',
-          controller: 'ShowController',
+          controller: 'ReviewController',
           controllerAs: 'shows'
       })
       .when('/review', {
@@ -31,7 +31,7 @@ app.config(function($routeProvider, $locationProvider) {
       })
       .when('/about', {
         templateUrl: 'view/templates/about.html',
-        controller: 'AboutController',
+        controller: 'ReviewController',
       });
 });
 
@@ -68,18 +68,6 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
 }]);
 
 
-app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-  $scope.view = {};
-  $http ({
-    method: 'GET',
-    url: '/reviews'
-  }).then(function(result) {
-    console.log(result)
-    $scope.view.reviews = result;
-  })
-}]);
-
-
 app.controller("ShowController", function($scope, $http) {
   $scope.view = {};
   $scope.view.findShow = function(){
@@ -103,11 +91,20 @@ app.controller("ReviewController", function($scope, $http) {
         method: 'GET',
         url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
     }).then(function successCallback(response){
+        console.log(response);
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
         $scope.view.showSummary = response.data.summary;
         $scope.view.airDay = response.data.schedule.days[0];
-        $scope.view.network = response.data.network.name;
+        if(!$scope.view.airDay){
+            $scope.view.airDay = 'Show ended';
+        }
+        if(!response.data.network){
+            $scope.view.network = 'Subscription';
+        }else{
+            $scope.view.network = response.data.network.name;
+
+        }
         console.log(response);
 
           $http ({
