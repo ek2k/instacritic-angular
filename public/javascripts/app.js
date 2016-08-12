@@ -2,8 +2,8 @@ var app = angular.module('instacritic', ['ngRoute']);
 
 console.log('booyah');
 
-app.config(function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
+app.config(function($locationProvider, $routeProvider) {
+  $locationProvider.html5Mode([true]);
   $routeProvider
       .when('/', {
           templateUrl: 'view/templates/home.html',
@@ -12,17 +12,20 @@ app.config(function($routeProvider, $locationProvider) {
       })
       .when('/users', {
           templateUrl: 'view/templates/users.html',
-          controller: 'UserController',
+          controller: 'ReviewController',
           controllerAs: 'users'
       })
       .when('/users/new', {
-          templateUrl: 'view/templates/newUser.html',
-          controller: 'UserController',
-          controllerAs: 'users'
+          templateUrl: 'view/templates/signin.html',
+          controller: 'NewUserController',
+      })
+      .when('/users/login', {
+        templateUrl: 'view/templates/login.html',
+        controller: 'LogInController',
       })
       .when('/shows', {
           templateUrl: 'view/templates/shows.html',
-          controller: 'ShowController',
+          controller: 'ReviewController',
           controllerAs: 'shows'
       })
       .when('/review', {
@@ -32,30 +35,19 @@ app.config(function($routeProvider, $locationProvider) {
       })
       .when('/about', {
         templateUrl: 'view/templates/about.html',
-        controller: 'AboutController',
+        controller: 'ReviewController',
       });
+
 });
 
 
 
-app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
+app.controller('IndexController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
   $scope.view = {};
 
-  var newData = {};
+}]);
 
-  $scope.NewUser = function(newUser) {
-    console.log("clicked");
-    newData = angular.copy(newUser);
-    console.log(newData);
-    $http({
-      method: 'POST',
-      url: '/users/new',
-      data: newUser
-    }).success(function(){
-      console.log('success');
-    })
-  }
-
+app.controller('LogInController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
   $scope.LogIn = function(user) {
     console.log(user);
     $http({
@@ -63,23 +55,27 @@ app.controller('IndexController', ['$scope', '$routeParams', '$location', '$http
       url: '/signin',
       data: user
     }).success(function(){
-      console.log('success');
+      $location.url('/users')
     })
   }
-}]);
 
+}])
 
-app.controller('ReviewController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http, $sce) {
-  $scope.view = {};
-  $http ({
-    method: 'GET',
-    url: '/reviews'
-  }).then(function(result) {
-    console.log(result)
-    $scope.view.reviews = result;
-  })
-}]);
-
+app.controller('NewUserController', ['$scope', '$routeParams', '$location', '$http', function($scope, $routeParams, $location, $http) {
+  $scope.NewUser = function(newUser) {
+    console.log("clicked");
+    var newData = {};
+    newData = angular.copy(newUser);
+    console.log(newData);
+    $http({
+      method: 'POST',
+      url: '/users/new',
+      data: newUser
+    }).success(function(response){
+      $location.url('/shows');
+    })
+  }
+}])
 
 app.controller("ShowController", function($scope, $http) {
   $scope.view = {};
@@ -91,8 +87,6 @@ app.controller("ShowController", function($scope, $http) {
     }).then(function successCallback(response){
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
-        console.log(response.data.image.medium);
-        console.log(response);
     });
   }
 });
@@ -106,11 +100,30 @@ app.controller("ReviewController", function($scope, $http) {
         method: 'GET',
         url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
     }).then(function successCallback(response){
+      var summary = response.data.summary.replace(/<\/?[^>]+>/gi, '');
+        console.log(response);
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
-        $scope.view.showSummary = response.data.summary;
-        console.log(response.data.image.medium);
+        $scope.view.showSummary = summary;
+        $scope.view.airDay = response.data.schedule.days[0];
+        if(!$scope.view.airDay){
+            $scope.view.airDay = 'Show ended';
+        }
+        if(!response.data.network){
+            $scope.view.network = 'Subscription';
+        }else{
+            $scope.view.network = response.data.network.name;
+
+        }
         console.log(response);
-    });
+
+          $http ({
+            method: 'GET',
+            url: '/reviews'
+          }).then(function(result) {
+            console.log(result)
+            $scope.view.reviews = result;
+          })
+        });
   }
 });

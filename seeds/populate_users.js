@@ -18,16 +18,25 @@ exports.seed = function(knex, Promise) {
                     username: 'ek2k',
                     password: 'password',
                     email: 'ed@ededneddy.com',
-                    avatar: 'http://www.fillmurray.com/g/210/305',
+                    avatar: 'http://1.bp.blogspot.com/-4x8LvBUopUg/UP_3v-hRgcI/AAAAAAAAC90/rerm6FhEJ4I/s1600/Anthony+Lamb+-+Nick+Cage+as+Salvador+Dali.jpg',
                     city: 'breckenridge',
                     state: 'CO'
                 }),
                 knex('users').insert({
                     id: 3,
-                    username: 'partyboob',
+                    username: 'parTybooB',
                     password: 'password',
                     email: 'kbleezey@karen.com',
-                    avatar: 'http://www.fillmurray.com/g/210/305',
+                    avatar: 'http://vignette3.wikia.nocookie.net/powerpuff/images/1/16/Powerpuffgirls-buttercup_large.png/revision/latest?cb=20160110051139',
+                    city: 'austin',
+                    state: 'TX'
+                }),
+                knex('users').insert({
+                    id: 4,
+                    username: 'PoomPoom',
+                    password: 'password',
+                    email: 'pickle@puppy.com',
+                    avatar: 'http://farm4.static.flickr.com/3602/3391833200_dd6625087e_o.jpg',
                     city: 'austin',
                     state: 'TX'
                 })
@@ -132,7 +141,8 @@ exports.seed = function(knex, Promise) {
                                 id: 1,
                                 user_id: 2,
                                 episode_id: 6,
-                                review: 'This is a great show. I really enjoyed watching it. ED HEARTS IT',
+                                review: 'I love this show!! So many great characters and dialogue. Totally recommended.',
+
                                 spoilers: false,
                                 star_rating: 5
                             }),
@@ -140,7 +150,7 @@ exports.seed = function(knex, Promise) {
                                 id: 2,
                                 user_id: 1,
                                 episode_id: 1,
-                                review: 'I might watch this show again, but who knows. It was not that great, or horrible.',
+                                review: 'Just started watching, but so far, it is pretty good',
                                 spoilers: false,
                                 star_rating: 5
                             }),
@@ -148,17 +158,18 @@ exports.seed = function(knex, Promise) {
                                 id: 3,
                                 user_id: 3,
                                 episode_id: 4,
-                                review: 'This show is absolutely BUN BUN!!!!!!',
+                                review: 'Blows my mind with the awesome',
                                 spoilers: true,
                                 star_rating: 4
                             }),
                             knex('user_reviews').insert({
                                 id: 4,
-                                user_id: 3,
+                                user_id: 4,
                                 episode_id: 3,
-                                review: 'I would highly suggest someone other than myself watch this show. I mean - seriously - SOOOOO AHHHMAZING',
+                                review: 'It frightens and confuses me, but I like it',
+
                                 spoilers: false,
-                                star_rating: 5
+                                star_rating: 3
                             })
                         ]).then(function() {
                             return knex('review_comments').del()

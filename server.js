@@ -77,9 +77,8 @@ app.post('/users/new', (req, res) => {
   username: req.body.username,
   password: hash,
   email: req.body.email,
-  }).then(function(result){
-    console.log(result);
-    res.json('result')
+}).then(function(result){
+  res.json(result);
   })
 })
 

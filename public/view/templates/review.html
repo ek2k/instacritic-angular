@@ -5,7 +5,7 @@
 
   <div class="col-sm-4">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-green">
         <h3>Search for a Show</h3>
       </div>
       <div class="panel-body">
@@ -21,22 +21,61 @@
   <div class="row" ng-show="view.results">
     <div class="col-sm-12">
 
-        <div class="panel panel-default" >
+        <div class="panel panel-default">
           <div class="panel-heading" id="reviews">
-              <h2>{{view.showTitle}}</h2>
-          </div>
+              <h1>{{view.showTitle}}</h1>
+          </div><br>
           <div class="row">
-            <div class="col-sm-5">
-              <div class="media">
-                <div class="media-left">
-                    <img class="media-object" ng-src="{{view.showImg}}" alt="TV show promo image">
-
+            <div class="col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-green">
+                  <h3>Show Info</h3>
                 </div>
-                <div class="media-body">
-                  <h5 class="media-heading">Summary</h5>
-                  <p>{{view.showSummary}}</p>
+                <div class="panel-body">
+                  <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" id="promoImg" ng-src="{{view.showImg}}" alt="TV show promo image">
+
+                    </div>
+                    <div class="media-body">
+                      <h5 class="media-heading">Airs On</h5>
+                      <p>{{view.airDay}}</p>
+                      <h5 class="media-heading">Network</h5>
+                      <p>{{view.network}}</p>
+
+                      <h5 class="media-heading">Summary</h5>
+                        <p>{{view.showSummary}}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-green">
+                  <h3>User Reviews</h3>
+                </div>
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <th></th>
+                      <th>User</th>
+                      <th>Review</th>
+                      <th>User Rating</th>
+                    </thead>
+                    <div>
+                      <tbody ng-controller="ReviewController" ng-repeat="data in view.reviews.data">
+                        <td><img class="avatar" ng-src="{{data.avatar}}" alt=""></td>
+                        <td>{{data.username}}</td>
+                        <td>{{data.review}}</td>
+                        <td>{{data.star_rating}} out of 5</td>
+                      </tbody>
+                    </div>
+                  </table>
+                </div>
+              </div>
+
             </div>
           </div>
 
