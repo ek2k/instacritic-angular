@@ -3,7 +3,7 @@ var app = angular.module('instacritic', ['ngRoute']);
 console.log('booyah');
 
 app.config(function($routeProvider, $locationProvider) {
-  $locationProvider.html5mode(true);
+  $locationProvider.html5Mode(true);
   $routeProvider
       .when('/', {
           templateUrl: 'view/templates/home.html',
