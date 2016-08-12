@@ -110,9 +110,10 @@ app.controller("ReviewController", function($scope, $http) {
         method: 'GET',
         url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
     }).then(function successCallback(response){
+      var summary = response.data.summary.replace(/<\/?[^>]+>/gi, '');
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
-        $scope.view.showSummary = response.data.summary;
+        $scope.view.showSummary = summary;
         $scope.view.airDay = response.data.schedule.days[0];
         $scope.view.network = response.data.network.name;
         console.log(response);
