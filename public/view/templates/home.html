@@ -112,7 +112,7 @@
     </div>
   </div>
   <!-- signup Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+  <div modal="signInModal" class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -137,13 +137,13 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-rad" data-dismiss="modal">Close</button>
-              <input type="submit" class="btn btn-rad" ng-click="NewUser(newUser)" value="Sign Up">
+              <button type="submit" ng-click="NewUser(newUser)" class="btn btn-rad" data-dismiss="modal">Submit</button>
+              <!-- <input type="submit" class="btn btn-rad" ng-click="NewUser(newUser)" data-dismiss="modal" value="Sign Up"> -->
             </div>
           </div>
           </form>
         </div>
     </div>
   </div>
-
 
 </div>
