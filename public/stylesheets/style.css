@@ -7,6 +7,9 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: "Luckiest Guy", cursive; }
 
+h1 {
+  color: #fc4a19; }
+
 h2, h4 {
   color: #66d7d1;
   text-shadow: 2px 2px 4px #000; }
@@ -63,6 +66,9 @@ img {
 .list-group-item {
   font-size: 150%; }
 
+.larger {
+  font-size: 150%; }
+
 .logo {
   width: 80%;
   height: auto;
@@ -96,7 +102,7 @@ img {
   font-family: "Luckiest Guy", cursive; }
 .navbar-nav li:hover,
 .navbar-right li:hover {
-  background-color: #fc4a19;
+  background-color: #d3db41;
   color: #403d58; }
 .navbar-nav a,
 .navbar-right a {

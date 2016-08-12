@@ -18,6 +18,10 @@ h1, h2, h3, h4, h5 {
   font-family: $headerFont;
 }
 
+h1 {
+  color: $orange;
+}
+
 h2, h4 {
   color: $ltBlue;
   text-shadow: 2px 2px 4px #000;
@@ -87,6 +91,10 @@ img {
   font-size: 150%;
 }
 
+.larger {
+  font-size: 150%;
+}
+
 .logo {
   width: 80%;
   height: auto;
@@ -130,7 +138,7 @@ img {
    }
 
    li:hover {
-     background-color: $orange;
+     background-color: $pearGreen;
      color: $dkPurple;
    }
 
@@ -184,7 +192,7 @@ a#ui-id-3.ui-tabs-anchor:hover {
 }
 
 
-//RATING STYLE
+//STAR RATING STYLE
 .rating {
     float:left;
 }
