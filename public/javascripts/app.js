@@ -2,7 +2,9 @@ var app = angular.module('instacritic', ['ngRoute']);
 
 console.log('booyah');
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function($locationProvider, $routeProvider) {
+  $locationProvider.html5Mode([true]);
+
   $routeProvider
       .when('/', {
           templateUrl: 'view/templates/home.html',
@@ -36,6 +38,7 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl: 'view/templates/about.html',
         controller: 'ReviewController',
       });
+
 });
 
 
@@ -98,11 +101,8 @@ app.controller("ReviewController", function($scope, $http) {
         method: 'GET',
         url: 'http://api.tvmaze.com/singlesearch/shows?q=' + title
     }).then(function successCallback(response){
-<<<<<<< HEAD
       var summary = response.data.summary.replace(/<\/?[^>]+>/gi, '');
-=======
         console.log(response);
->>>>>>> d2ec9a98eee9adb8ceb27e682afc611f145f0a95
         $scope.view.showTitle = response.data.name;
         $scope.view.showImg = response.data.image.medium;
         $scope.view.showSummary = summary;
